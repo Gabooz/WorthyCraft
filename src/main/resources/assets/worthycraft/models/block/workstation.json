@@ -1,0 +1,21 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"all": "worthycraft:models:block/workstation"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 9, 16],
+			"faces": {
+				"north": {"uv": [4, 0, 8, 2.25], "texture": "#all"},
+				"east": {"uv": [4, 2.25, 8, 4.5], "texture": "#all"},
+				"south": {"uv": [4, 4.5, 8, 6.75], "texture": "#all"},
+				"west": {"uv": [4, 6.75, 8, 9], "texture": "#all"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#all"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#all"}
+			}
+		}
+	]
+}

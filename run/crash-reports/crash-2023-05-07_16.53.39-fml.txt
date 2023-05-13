@@ -1,0 +1,289 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 5/7/23, 4:53 PM
+Description: Mod loading error has occurred
+
+java.lang.Exception: Mod Loading has failed
+	at net.minecraftforge.logging.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:69) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.client.loading.ClientModLoader.completeModLoading(ClientModLoader.java:183) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.lambda$new$1(Minecraft.java:553) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.Util.ifElse(Util.java:409) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading}
+	at net.minecraft.client.Minecraft.lambda$new$2(Minecraft.java:547) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.LoadingOverlay.render(LoadingOverlay.java:135) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:875) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1040) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:660) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:205) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:38) ~[fmlloader-1.18.1-39.0.5.jar%230!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:90) [bootstraplauncher-0.1.17.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.world.phys.shapes.Shapes.box(Shapes.java:48) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading}
+-- MOD worthycraft --
+Details:
+	Caused by 0: java.lang.ExceptionInInitializerError
+		at com.gabriel.worthycraft.setup.registryobjects.WorthyCraftBlocks.lambda$0(WorthyCraftBlocks.java:17) ~[%2381!:?] {re:classloading}
+		at net.minecraftforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:120) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+		at net.minecraftforge.registries.DeferredRegister.addEntries(DeferredRegister.java:196) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+		at net.minecraftforge.registries.DeferredRegister$EventDispatcher.handleEvent(DeferredRegister.java:168) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+		at net.minecraftforge.eventbus.ASMEventHandler_0_EventDispatcher_handleEvent_Register.invoke(.dynamic) ~[?:?] {}
+		at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!:?] {}
+		at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!:?] {}
+		at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!:?] {}
+		at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:120) ~[javafmllanguage-1.18.1-39.0.5.jar%2378!:?] {}
+		at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:121) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+		at net.minecraftforge.fml.ModWorkManager$SyncExecutor.driveOne(ModWorkManager.java:56) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at net.minecraftforge.fml.ModWorkManager$DrivenExecutor.drive(ModWorkManager.java:40) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at net.minecraftforge.fml.ModLoader.waitForTransition(ModLoader.java:215) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$21(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+		at net.minecraftforge.fml.ModLoader.dispatchAndHandleError(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at net.minecraftforge.fml.ModLoader.lambda$gatherAndInitializeMods$11(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+		at net.minecraftforge.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+		at net.minecraftforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+		at net.minecraftforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:127) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+		at net.minecraftforge.client.loading.ClientModLoader.begin(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+		at net.minecraft.client.Minecraft.<init>(Minecraft.java:458) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+		at net.minecraft.client.main.Main.main(Main.java:169) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+		at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+		at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+		at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+		at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+		at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:38) ~[fmlloader-1.18.1-39.0.5.jar%230!:?] {}
+		at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.0.24.jar%2310!:?] {}
+		at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:90) [bootstraplauncher-0.1.17.jar:?] {}
+
+	Mod File: main
+	Failure message: Worthycraft (worthycraft) encountered an error during the common_setup event phase
+		java.lang.ExceptionInInitializerError: null
+	Mod Version: 0.0NONE
+	Mod Issue URL: NOT PROVIDED
+	Exception message: java.lang.IllegalArgumentException: The min values need to be smaller or equals to the max values
+Stacktrace:
+	at net.minecraft.world.phys.shapes.Shapes.box(Shapes.java:48) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.block.Block.box(Block.java:136) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at com.gabriel.worthycraft.blocks.WorkStation.<clinit>(WorkStation.java:21) ~[%2381!:?] {re:classloading}
+	at com.gabriel.worthycraft.setup.registryobjects.WorthyCraftBlocks.lambda$0(WorthyCraftBlocks.java:17) ~[%2381!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:120) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.addEntries(DeferredRegister.java:196) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister$EventDispatcher.handleEvent(DeferredRegister.java:168) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_0_EventDispatcher_handleEvent_Register.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:120) ~[javafmllanguage-1.18.1-39.0.5.jar%2378!:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:121) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at net.minecraftforge.fml.ModWorkManager$SyncExecutor.driveOne(ModWorkManager.java:56) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModWorkManager$DrivenExecutor.drive(ModWorkManager.java:40) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.waitForTransition(ModLoader.java:215) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$21(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.dispatchAndHandleError(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$gatherAndInitializeMods$11(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:127) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.begin(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:458) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:169) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:38) ~[fmlloader-1.18.1-39.0.5.jar%230!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:90) [bootstraplauncher-0.1.17.jar:?] {}
+
+
+-- MOD worthycraft --
+Details:
+	Mod File: main
+	Failure message: Worthycraft (worthycraft) encountered an error during the error event phase
+		java.lang.NullPointerException: Registry Object not present: worthycraft:workstation
+	Mod Version: 0.0NONE
+	Mod Issue URL: NOT PROVIDED
+	Exception message: java.lang.NullPointerException: Registry Object not present: worthycraft:workstation
+Stacktrace:
+	at java.util.Objects.requireNonNull(Objects.java:334) ~[?:?] {}
+	at net.minecraftforge.registries.RegistryObject.get(RegistryObject.java:116) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at com.gabriel.worthycraft.setup.registryobjects.WorthyCraftItems.lambda$0(WorthyCraftItems.java:25) ~[%2381!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:120) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.addEntries(DeferredRegister.java:196) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister$EventDispatcher.handleEvent(DeferredRegister.java:168) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_0_EventDispatcher_handleEvent_Register.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:120) ~[javafmllanguage-1.18.1-39.0.5.jar%2378!:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:121) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at net.minecraftforge.fml.ModWorkManager$SyncExecutor.driveOne(ModWorkManager.java:56) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModWorkManager$DrivenExecutor.drive(ModWorkManager.java:40) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.waitForTransition(ModLoader.java:215) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$21(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.dispatchAndHandleError(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$gatherAndInitializeMods$11(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:127) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.begin(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:458) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:169) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:38) ~[fmlloader-1.18.1-39.0.5.jar%230!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:90) [bootstraplauncher-0.1.17.jar:?] {}
+
+
+-- MOD worthycraft --
+Details:
+	Mod File: main
+	Failure message: Worthycraft (worthycraft) encountered an error during the error event phase
+		java.lang.NullPointerException: Registry Object not present: worthycraft:workstation
+	Mod Version: 0.0NONE
+	Mod Issue URL: NOT PROVIDED
+	Exception message: java.lang.NullPointerException: Registry Object not present: worthycraft:workstation
+Stacktrace:
+	at java.util.Objects.requireNonNull(Objects.java:334) ~[?:?] {}
+	at net.minecraftforge.registries.RegistryObject.get(RegistryObject.java:116) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at com.gabriel.worthycraft.setup.registryobjects.WorthyCraftBlockEntities.lambda$0(WorthyCraftBlockEntities.java:15) ~[%2381!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:120) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister.addEntries(DeferredRegister.java:196) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.registries.DeferredRegister$EventDispatcher.handleEvent(DeferredRegister.java:168) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_0_EventDispatcher_handleEvent_Register.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:120) ~[javafmllanguage-1.18.1-39.0.5.jar%2378!:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:121) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at net.minecraftforge.fml.ModWorkManager$SyncExecutor.driveOne(ModWorkManager.java:56) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModWorkManager$DrivenExecutor.drive(ModWorkManager.java:40) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.waitForTransition(ModLoader.java:215) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$21(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.dispatchAndHandleError(ModLoader.java:200) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$gatherAndInitializeMods$11(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:177) ~[fmlcore-1.18.1-39.0.5.jar%2380!:?] {}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:127) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.begin(ClientModLoader.java:106) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2376%2382!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:458) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:169) ~[forge-1.18.1-39.0.5_mapped_official_1.18.1.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:38) ~[fmlloader-1.18.1-39.0.5.jar%230!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.0.24.jar%2310!:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:90) [bootstraplauncher-0.1.17.jar:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.1
+	Minecraft Version ID: 1.18.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.6, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 856273920 bytes (816 MiB) / 1307574272 bytes (1247 MiB) up to 2122317824 bytes (2024 MiB)
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz
+	Identifier: Intel64 Family 6 Model 58 Stepping 9
+	Microarchitecture: Ivy Bridge (Client)
+	Frequency (GHz): 3.19
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 4
+	Graphics card #0 name: Intel(R) HD Graphics
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 2112.00
+	Graphics card #0 deviceId: 0x0152
+	Graphics card #0 versionInfo: DriverVersion=10.18.10.5161
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.33
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 1.33
+	Memory slot #1 type: DDR3
+	Virtual memory max (MB): 13764.79
+	Virtual memory used (MB): 8535.82
+	Swap memory total (MB): 5670.71
+	Swap memory used (MB): 336.98
+	JVM Flags: 2 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -XX:+ShowCodeDetailsInExceptionMessages
+	ModLauncher: 9.0.24+9.0.24+main.7be9f01d
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		 mixin PLUGINSERVICE 
+		 eventbus PLUGINSERVICE 
+		 object_holder_definalize PLUGINSERVICE 
+		 runtime_enum_extender PLUGINSERVICE 
+		 capability_token_subclass PLUGINSERVICE 
+		 accesstransformer PLUGINSERVICE 
+		 runtimedistcleaner PLUGINSERVICE 
+		 mixin TRANSFORMATIONSERVICE 
+		 fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		javafml@null
+	Mod List: 
+		forge-1.18.1-39.0.5_mapped_official_1.18.1.jar    |Minecraft                     |minecraft                     |1.18.1              |COMMON_SET|Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |39.0.5              |COMMON_SET|Manifest: NOSIGNATURE
+		main                                              |Worthycraft                   |worthycraft                   |0.0NONE             |ERROR     |Manifest: NOSIGNATURE
+	Crash Report UUID: dd76000b-d57e-483c-a6cf-b534fdd10f34
+	FML: 39.0
+	Forge: net.minecraftforge:39.0.5

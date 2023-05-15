@@ -44,9 +44,8 @@ public class WorkStation extends Block implements EntityBlock  {
 					for (int i = 0; i < workstation.inventorySize(); i++) {
 						if (workstation.getItemHandler().getItem(i).isEmpty()) {
 							if(i > 0) {
-								ItemStack pulledItem = ItemHandlerHelper.insertItem(new ItemStackHandler(), workstation.getItemHandler().getItem(i-1), false);
+								player.setItemInHand(InteractionHand.MAIN_HAND, workstation.getItemHandler().getItem(i-1));
 								workstation.getItemHandler().setItem(i-1, ItemStack.EMPTY);
-								player.setItemInHand(handIn, pulledItem);
 								level.playSound(null, pos, SoundEvents.GENERIC_SPLASH, SoundSource.BLOCKS, 0.1F, 10F);
 								return InteractionResult.SUCCESS;
 							} else {

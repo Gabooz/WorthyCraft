@@ -1,0 +1,11 @@
+{
+	"type": "worthycraft:item_crafting",
+	"ingredients": [
+		{
+			"item": "minecraft:wood"
+		}
+	],
+	"output": {
+		"item": "minecraft:oak_planks"
+	}
+}

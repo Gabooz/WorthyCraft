@@ -31,7 +31,7 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
 		this.output = output;
 		this.inputs = inputs;
 	}
-	
+
 	@Override
 	public boolean matches(Container pContainer, Level p_44003_) {
 		return inputs.get(0).test(pContainer.getItem(0));
@@ -44,8 +44,7 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
 
 	@Override
 	public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

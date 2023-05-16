@@ -64,10 +64,18 @@ public class WorkStation extends Block implements EntityBlock  {
 					Container currentWorkStationInventory = workstation.getItemHandler();
 					for (int i = 0; i < workstation.inventorySize(); i++) {
 						if (workstation.getItemHandler().getItem(i).isEmpty()) {
-							workstation.getItemHandler().setItem(i, item.split(1));
-							player.setItemInHand(handIn, ItemStack.EMPTY);
-							level.playSound(null, pos, SoundEvents.GENERIC_SPLASH, SoundSource.BLOCKS, 0.1F, 10F);
-							return InteractionResult.SUCCESS;
+							if(i < 16) {
+								workstation.getItemHandler().setItem(i, item.split(1));
+								if (item.getCount() > 0) {
+									player.setItemInHand(handIn, item.split(item.getCount()));
+								} else {
+									player.setItemInHand(handIn, ItemStack.EMPTY);
+								}
+								level.playSound(null, pos, SoundEvents.GENERIC_SPLASH, SoundSource.BLOCKS, 0.1F, 10F);
+								return InteractionResult.SUCCESS;
+							} else {
+								return InteractionResult.FAIL;
+							}
 						}
 					}
 					workstation.getItemHandler().setItem(1, item.split(1));

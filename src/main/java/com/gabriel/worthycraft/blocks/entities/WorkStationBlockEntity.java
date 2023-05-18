@@ -30,4 +30,8 @@ public class WorkStationBlockEntity extends FunctionalInventoryBlockEntity {
 			}
 		};
 	}
+
+	public ItemStack getRenderStack() {
+		return getItemHandler().getItem(0);
+	}
 }

@@ -62,6 +62,7 @@ public class WorkStation extends Block implements EntityBlock  {
 							player.setItemInHand(InteractionHand.MAIN_HAND, workstation.getItemHandler().getItem(i-1)); //Put the last item (the one before we hit the empty spot) in the players hand
 							workstation.getItemHandler().setItem(i-1, ItemStack.EMPTY); //Remove this item from the workstation
 							level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+							workstation.contentsChanged(i);
 							return InteractionResult.sidedSuccess(!level.isClientSide); //End the sequence
 						} else { //If the item will be negative then end
 							return InteractionResult.FAIL;
@@ -88,6 +89,7 @@ public class WorkStation extends Block implements EntityBlock  {
 						}
 						workstation.getItemHandler().setItem(0, new ItemStack(outputItem)); //Put the output block in the workstation
 						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+						workstation.contentsChanged(UPDATE_ALL);
 						return InteractionResult.sidedSuccess(!level.isClientSide); //End
 					}else { //If there is no recipe
 						return InteractionResult.FAIL; //end
@@ -106,10 +108,12 @@ public class WorkStation extends Block implements EntityBlock  {
 								if (item.getCount() > 0) { //If the player has more than one item
 									player.setItemInHand(handIn, item.split(item.getCount())); //Take away one from the stack
 									level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.5F, 50F);
+									workstation.contentsChanged(i);
 									return InteractionResult.sidedSuccess(!level.isClientSide); //end
 								} else { // If the player has just one item
 									player.setItemInHand(handIn, ItemStack.EMPTY); //Empty his hand slot
 									level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.5F, 50F);
+									workstation.contentsChanged(i);
 									return InteractionResult.sidedSuccess(!level.isClientSide); //end
 								}
 							} else {

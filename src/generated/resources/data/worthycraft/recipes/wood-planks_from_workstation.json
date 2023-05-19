@@ -2,7 +2,7 @@
 	"type": "worthycraft:item_crafting",
 	"ingredients": [
 		{
-			"item": "minecraft:wood"
+			"item": "minecraft:oak_log"
 		}
 	],
 	"output": {

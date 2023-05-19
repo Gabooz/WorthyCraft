@@ -13,10 +13,10 @@ public class WorthyCraftRecipeTypes {
 	public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, WorthyCraft.MODID);
 	
-	public static RegistryObject<RecipeSerializer<WorkStationAxeRecipe>> GEM_CUTTING_SERIALIZER;
+	public static RegistryObject<RecipeSerializer<WorkStationAxeRecipe>> ITEM_CRAFTING_SERIALIZER;
 	
 	public static void RegisterRecipeTypes() {
-		GEM_CUTTING_SERIALIZER =  SERIALIZERS.register("item_crafting", () -> WorkStationAxeRecipe.Serializer.INSTANCE);
+		ITEM_CRAFTING_SERIALIZER =  SERIALIZERS.register("item_crafting", () -> WorkStationAxeRecipe.Serializer.INSTANCE);
 	}       
 
     public static void register(IEventBus eventBus) {

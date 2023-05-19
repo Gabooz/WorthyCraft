@@ -29,6 +29,7 @@ public class Registration {
         WorthyCraftItems.ITEMS.register(bus);
         WorthyCraftBlockEntities.BLOCK_ENTITIES.register(bus);
         WorthyCraftContainers.CONTAINERS.register(bus);
+        WorthyCraftRecipeTypes.SERIALIZERS.register(bus);
         WorthyCraftRecipeTypes.RegisterRecipeTypes();
     }
 }

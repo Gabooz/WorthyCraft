@@ -1,6 +1,7 @@
 package com.gabriel.worthycraft.networking;
 
 import com.gabriel.worthycraft.WorthyCraft;
+import com.gabriel.worthycraft.networking.packet.*;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,6 +27,12 @@ public class ModMessages {
 	                .simpleChannel();
 
 	        INSTANCE = net;
+	        
+	        net.messageBuilder(ItemStackSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+            .decoder(ItemStackSyncS2CPacket::new)
+            .encoder(ItemStackSyncS2CPacket::toBytes)
+            .consumer(ItemStackSyncS2CPacket::handle)
+            .add();
 	    }
 
 	    public static <MSG> void sendToServer(MSG message) {

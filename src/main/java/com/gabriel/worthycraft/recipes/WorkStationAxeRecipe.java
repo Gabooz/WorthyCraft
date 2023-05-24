@@ -9,8 +9,11 @@ import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -34,6 +37,11 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
 
 	@Override
 	public boolean matches(Container pContainer, Level p_44003_) {
+		for (int i = 0; i < pContainer.getContainerSize(); i++) {
+			if (pContainer.getItem(i).isEmpty()) {
+				return inputs.get(0).test(pContainer.getItem(i-1));
+			}
+		}
 		return inputs.get(0).test(pContainer.getItem(0));
 	}
 

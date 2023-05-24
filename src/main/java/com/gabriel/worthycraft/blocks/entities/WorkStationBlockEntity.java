@@ -43,7 +43,7 @@ public class WorkStationBlockEntity extends FunctionalInventoryBlockEntity {
 	}
 
 	public ItemStack getRenderStack() {
-		return getItemHandler().getItem(0);
+		return getItemHandler().getItem(getItemLastPutIn());
 	}
 
 	public void setHandler(SimpleContainer itemContainer) {

@@ -87,7 +87,7 @@ public class WorkStation extends Block implements EntityBlock  {
 						for (int i = 0; i < workstation.inventorySize(); i++) { //Go through workstation inventory
 							workstation.getItemHandler().setItem(i, ItemStack.EMPTY); //make every item gone
 						}
-						workstation.getItemHandler().setItem(0, new ItemStack(outputItem)); //Put the output block in the workstation
+						workstation.getItemHandler().setItem(workstation.getItemLastPutIn(), new ItemStack(outputItem)); //Put the output block in the workstation
 						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
 						workstation.contentsChanged(UPDATE_ALL);
 						return InteractionResult.sidedSuccess(!level.isClientSide); //End

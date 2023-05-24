@@ -37,6 +37,15 @@ public abstract class FunctionalInventoryBlockEntity extends BlockEntity impleme
 		return itemHandler;
 	}
 	
+	public int getItemLastPutIn() {
+		for (int i = 0; i < getItemHandler().getContainerSize(); i++) {
+			if (getItemHandler().getItem(i).isEmpty()) {
+				return i-1;
+			}
+		}
+		return 0;
+	}
+	
 	public final int inventorySize() {
 		return getItemHandler().getContainerSize();
 	}

@@ -51,4 +51,6 @@ public class WorkStationBlockEntity extends FunctionalInventoryBlockEntity {
             getItemHandler().setItem(i, itemContainer.getItem(i));
         }	
 	}
+
+	
 }

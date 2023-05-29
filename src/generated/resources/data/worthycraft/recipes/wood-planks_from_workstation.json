@@ -1,5 +1,5 @@
 {
-	"type": "worthycraft:item_crafting",
+	"type": "worthycraft:work_station_axe_recipe",
 	"ingredients": [
 		{
 			"item": "minecraft:oak_log"

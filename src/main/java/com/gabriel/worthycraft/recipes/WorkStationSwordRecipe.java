@@ -22,13 +22,13 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 
-public class WorkStationAxeRecipe implements Recipe<Container>{
+public class WorkStationSwordRecipe implements Recipe<Container>{
 
 	private final ResourceLocation id;
 	private final ItemStack output;
 	private final NonNullList<Ingredient> inputs;
 	
-	public WorkStationAxeRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputs) {
+	public WorkStationSwordRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputs) {
 		super();
 		this.id = id;
 		this.output = output;
@@ -75,21 +75,21 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
 		return Type.INSTANCE;
 	}
 
-	public static class Type implements RecipeType<WorkStationAxeRecipe> {
+	public static class Type implements RecipeType<WorkStationSwordRecipe> {
 		private Type() {
 			
 		}
 		public static final Type INSTANCE = new Type();
-		public static final String ID = "work_station_axe_recipe";
+		public static final String ID = "work_station_shovel_recipe";
 	}
 	
-	public static class Serializer implements RecipeSerializer<WorkStationAxeRecipe> {
+	public static class Serializer implements RecipeSerializer<WorkStationSwordRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(WorthyCraft.MODID,"work_station_axe_recipe");
+                new ResourceLocation(WorthyCraft.MODID,"work_station_shovel_recipe");
 
         @Override
-        public WorkStationAxeRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public WorkStationSwordRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
@@ -99,11 +99,11 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new WorkStationAxeRecipe(id, output, inputs);
+            return new WorkStationSwordRecipe(id, output, inputs);
         }
 
         @Override
-        public WorkStationAxeRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public WorkStationSwordRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
@@ -111,11 +111,11 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
             }
 
             ItemStack output = buf.readItem();
-            return new WorkStationAxeRecipe(id, output, inputs);
+            return new WorkStationSwordRecipe(id, output, inputs);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, WorkStationAxeRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, WorkStationSwordRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);

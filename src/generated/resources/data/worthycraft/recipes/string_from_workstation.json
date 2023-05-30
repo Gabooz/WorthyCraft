@@ -1,0 +1,14 @@
+{
+	"type": "worthycraft:work_station_sword_recipe",
+	"ingredients": [
+		{
+			"item": "minecraft:white_wool"
+		}
+	],
+	"output": {
+		"item": "minecraft:string",
+		"item": "minecraft:string",
+		"item": "minecraft:string",
+		"item": "minecraft:string"
+	}
+}

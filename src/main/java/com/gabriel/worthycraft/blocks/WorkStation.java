@@ -19,6 +19,8 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -35,6 +37,9 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import com.gabriel.worthycraft.blocks.entities.*;
 import com.gabriel.worthycraft.recipes.WorkStationAxeRecipe;
+import com.gabriel.worthycraft.recipes.WorkStationPickaxeRecipe;
+import com.gabriel.worthycraft.recipes.WorkStationShovelRecipe;
+import com.gabriel.worthycraft.recipes.WorkStationSwordRecipe;
 
 public class WorkStation extends Block implements EntityBlock  {
 	
@@ -75,7 +80,44 @@ public class WorkStation extends Block implements EntityBlock  {
 						}else {
 							return InteractionResult.FAIL;
 						}
+				} else if (item.getItem() instanceof PickaxeItem){
+					Container inventory = workstation.getItemHandler();
+					Optional<WorkStationPickaxeRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationPickaxeRecipe.Type.INSTANCE, inventory, level);
+						
+					if(match.isPresent()) {
+						Item outputItem = match.get().getResultItem().getItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+						return InteractionResult.sidedSuccess(!level.isClientSide);
+					}else {
+						return InteractionResult.FAIL;
+					}
+				} else if (item.getItem() instanceof ShovelItem){
+					Container inventory = workstation.getItemHandler();
+					Optional<WorkStationShovelRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationShovelRecipe.Type.INSTANCE, inventory, level);
+						
+					if(match.isPresent()) {
+						Item outputItem = match.get().getResultItem().getItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+						return InteractionResult.sidedSuccess(!level.isClientSide);
+					}else {
+						return InteractionResult.FAIL;
+					}
+				} else if (item.getItem() instanceof SwordItem){
+					Container inventory = workstation.getItemHandler();
+					Optional<WorkStationSwordRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationSwordRecipe.Type.INSTANCE, inventory, level);
+						
+					if(match.isPresent()) {
+						Item outputItem = match.get().getResultItem().getItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+						return InteractionResult.sidedSuccess(!level.isClientSide);
+					}else {
+						return InteractionResult.FAIL;
+					}
 				} else {
+				
 						if(workstation.getItemLastPutIn() < 10) {
 							replaceWorkstationSlot(workstation.getEmptySpot(), item.split(1), workstation);
 							if (item.getCount() > 0) {

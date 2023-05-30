@@ -37,12 +37,16 @@ public class WorkStationShovelRecipe implements Recipe<Container>{
 
 	@Override
 	public boolean matches(Container pContainer, Level p_44003_) {
-		for (int i = 0; i < pContainer.getContainerSize(); i++) {
+
+		for (int i = 0; i < inputs.size(); i++) {
 			if (pContainer.getItem(i).isEmpty()) {
-				return inputs.get(0).test(pContainer.getItem(i-1));
+				return false;
+			} else if (!inputs.get(i).test(pContainer.getItem(i))){
+				return false;
 			}
 		}
-		return inputs.get(0).test(pContainer.getItem(0));
+		
+		return true;
 	}
 
 	@Override

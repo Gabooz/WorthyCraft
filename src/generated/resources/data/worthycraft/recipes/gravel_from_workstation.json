@@ -1,0 +1,11 @@
+{
+	"type": "worthycraft:work_station_shovel_recipe",
+	"ingredients": [
+		{
+			"item": "minecraft:gravel"
+		}
+	],
+	"output": {
+		"item": "minecraft:flint"
+	}
+}

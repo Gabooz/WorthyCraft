@@ -73,8 +73,11 @@ public class WorkStation extends Block implements EntityBlock  {
 						Optional<WorkStationAxeRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationAxeRecipe.Type.INSTANCE, inventory, level);
 							
 						if(match.isPresent()) {
-							Item outputItem = match.get().getResultItem().getItem();
-							replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+							ItemStack outputItem = match.get().getResultItem();
+							replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+							for (int i = 0; i < outputItem.getCount(); i++) {
+								replaceWorkstationSlot(workstation.getEmptySpot(), new ItemStack(outputItem.getItem()), workstation);
+							}
 							level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
 							return InteractionResult.sidedSuccess(!level.isClientSide);
 						}else {
@@ -85,8 +88,11 @@ public class WorkStation extends Block implements EntityBlock  {
 					Optional<WorkStationPickaxeRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationPickaxeRecipe.Type.INSTANCE, inventory, level);
 						
 					if(match.isPresent()) {
-						Item outputItem = match.get().getResultItem().getItem();
-						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						ItemStack outputItem = match.get().getResultItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+						for (int i = 0; i < outputItem.getCount(); i++) {
+							replaceWorkstationSlot(workstation.getEmptySpot(), new ItemStack(outputItem.getItem()), workstation);
+						}
 						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
 						return InteractionResult.sidedSuccess(!level.isClientSide);
 					}else {
@@ -97,8 +103,11 @@ public class WorkStation extends Block implements EntityBlock  {
 					Optional<WorkStationShovelRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationShovelRecipe.Type.INSTANCE, inventory, level);
 						
 					if(match.isPresent()) {
-						Item outputItem = match.get().getResultItem().getItem();
-						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						ItemStack outputItem = match.get().getResultItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+						for (int i = 0; i < outputItem.getCount(); i++) {
+							replaceWorkstationSlot(workstation.getEmptySpot(), new ItemStack(outputItem.getItem()), workstation);
+						}
 						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
 						return InteractionResult.sidedSuccess(!level.isClientSide);
 					}else {
@@ -109,8 +118,11 @@ public class WorkStation extends Block implements EntityBlock  {
 					Optional<WorkStationSwordRecipe> match = level.getRecipeManager().getRecipeFor(WorkStationSwordRecipe.Type.INSTANCE, inventory, level);
 						
 					if(match.isPresent()) {
-						Item outputItem = match.get().getResultItem().getItem();
-						replaceWorkstationSlot(workstation.getItemLastPutIn(), new ItemStack(outputItem), workstation);
+						ItemStack outputItem = match.get().getResultItem();
+						replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+						for (int i = 0; i < outputItem.getCount(); i++) {
+							replaceWorkstationSlot(workstation.getEmptySpot(), new ItemStack(outputItem.getItem()), workstation);
+						}
 						level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
 						return InteractionResult.sidedSuccess(!level.isClientSide);
 					}else {

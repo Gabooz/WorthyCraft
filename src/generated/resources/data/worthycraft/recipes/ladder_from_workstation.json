@@ -3,11 +3,11 @@
 	"ingredients": [
 		{
 			"item": "minecraft:stick",
-			"item": "minecraft:stick",
-			"item": "minecraft:stick"
+			"count": 3
 		}
 	],
 	"output": {
-		"item": "minecraft:ladder"
+		"item": "minecraft:ladder",
+		"count": 7
 	}
 }

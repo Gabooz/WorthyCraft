@@ -6,6 +6,7 @@ import com.gabriel.worthycraft.WorthyCraft;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import net.minecraft.Util;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -21,6 +23,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
+import net.minecraft.network.chat.TextComponent;
 
 public class WorkStationAxeRecipe implements Recipe<Container>{
 
@@ -38,14 +41,30 @@ public class WorkStationAxeRecipe implements Recipe<Container>{
 	@Override
 	public boolean matches(Container pContainer, Level p_44003_) {
 		
+		SimpleContainer ItemRecipe = new SimpleContainer(11);
+		int o = 0;
 		for (int i = 0; i < inputs.size(); i++) {
-			if (pContainer.getItem(i).isEmpty()) {
-				return false;
-			} else if (!inputs.get(i).test(pContainer.getItem(i))){
-				return false;
+			for (int a = 0; a < inputs.get(i).getItems().length; a++) {
+				ItemRecipe.setItem(o, inputs.get(i).getItems()[a]);
+				System.out.println(inputs.get(i).getItems()[a].getDisplayName());
+				o++;
 			}
 		}
 		
+		for (int i = 0; i < ItemRecipe.getContainerSize(); i++) {
+			if(!ItemRecipe.getItem(i).isEmpty()) {
+				System.out.println(ItemRecipe.getItem(i));
+			}	else {
+				System.out.println("Empty");
+			}
+			if(!ItemRecipe.getItem(i).isEmpty()) {
+				if (pContainer.getItem(i).isEmpty()) {
+					return false;
+				} else if (!ItemRecipe.getItem(i).sameItem(pContainer.getItem(i))){
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 

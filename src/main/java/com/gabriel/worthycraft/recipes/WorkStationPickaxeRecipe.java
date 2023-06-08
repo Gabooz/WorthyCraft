@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -37,15 +38,28 @@ public class WorkStationPickaxeRecipe implements Recipe<Container>{
 
 	@Override
 	public boolean matches(Container pContainer, Level p_44003_) {
-
+		SimpleContainer ItemRecipe = new SimpleContainer(11);
+		int o = 0;
 		for (int i = 0; i < inputs.size(); i++) {
-			if (pContainer.getItem(i).isEmpty()) {
-				return false;
-			} else if (!inputs.get(i).test(pContainer.getItem(i))){
-				return false;
+			for (int u = 0; u < inputs.get(i).getItems().length; u++) {
+				ItemRecipe.setItem(o, inputs.get(i).getItems()[u]);
+				o++;
 			}
 		}
 		
+		for (int i = 0; i < ItemRecipe.getContainerSize(); i++) {
+			if(!ItemRecipe.getItem(i).isEmpty()) {
+				if (pContainer.getItem(i).isEmpty()) {
+					return false;
+				} else if (!ItemRecipe.getItem(i).sameItem(pContainer.getItem(i))){
+					return false;
+				}
+			} else {
+				if (!pContainer.getItem(i).isEmpty()) {
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 
@@ -97,7 +111,7 @@ public class WorkStationPickaxeRecipe implements Recipe<Container>{
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(ingredients.size(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

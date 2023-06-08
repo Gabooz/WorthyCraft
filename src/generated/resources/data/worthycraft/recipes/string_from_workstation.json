@@ -7,8 +7,6 @@
 	],
 	"output": {
 		"item": "minecraft:string",
-		"item": "minecraft:string",
-		"item": "minecraft:string",
-		"item": "minecraft:string"
+		"count": 4
 	}
 }

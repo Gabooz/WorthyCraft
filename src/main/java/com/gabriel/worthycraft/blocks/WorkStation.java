@@ -60,9 +60,19 @@ public class WorkStation extends Block implements EntityBlock  {
 		if (currentBlockEntityInstance instanceof WorkStationBlockEntity workstation) {
 			if (item.isEmpty()) {
 						if(workstation.getItemLastPutIn() >= 0) {
-							player.setItemInHand(InteractionHand.MAIN_HAND, workstation.getItemHandler().getItem(workstation.getItemLastPutIn()));
+							ItemStack ItemTakenFromWorkstation = workstation.getItemHandler().getItem(workstation.getItemLastPutIn());
 							replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
-							level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 0.1F, 10F);
+							ItemHandlerHelper.giveItemToPlayer(player, ItemTakenFromWorkstation);
+							level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.1F, 10F);
+							for (int i = workstation.getItemLastPutIn(); i > -1; i--) {
+								level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.1F, 10F);
+								if(workstation.getItemHandler().getItem(workstation.getItemLastPutIn()).is(ItemTakenFromWorkstation.getItem())) {
+									replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+									ItemHandlerHelper.giveItemToPlayer(player, ItemTakenFromWorkstation);
+								} else {
+									return InteractionResult.sidedSuccess(!level.isClientSide);
+								}
+							}
 							return InteractionResult.sidedSuccess(!level.isClientSide);
 						} else {
 							return InteractionResult.FAIL;
@@ -74,7 +84,7 @@ public class WorkStation extends Block implements EntityBlock  {
 							
 						if(match.isPresent()) {
 							ItemStack outputItem = match.get().getResultItem();
-							replaceWorkstationSlot(workstation.getItemLastPutIn(), ItemStack.EMPTY, workstation);
+							replaceEverySlotWith(ItemStack.EMPTY, workstation);
 							for (int i = 0; i < outputItem.getCount(); i++) {
 								replaceWorkstationSlot(workstation.getEmptySpot(), new ItemStack(outputItem.getItem()), workstation);
 							}
@@ -154,6 +164,12 @@ public class WorkStation extends Block implements EntityBlock  {
 	private void replaceWorkstationSlot(int slot, ItemStack item, WorkStationBlockEntity workstation) {
 		workstation.getItemHandler().setItem(slot, item);
 		workstation.contentsChanged(slot);
+	}
+	
+	public void replaceEverySlotWith(ItemStack item, WorkStationBlockEntity workstation) {
+		for (int i = 0; i < workstation.getItemHandler().getContainerSize(); i++) {
+			replaceWorkstationSlot(i, ItemStack.EMPTY, workstation);
+		}
 	}
 	
 	@Nullable

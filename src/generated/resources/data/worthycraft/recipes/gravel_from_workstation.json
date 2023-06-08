@@ -1,11 +1,11 @@
 {
-	"type": "worthycraft:work_station_shovel_recipe",
+	"type": "worthycraft:work_station_pickaxe_recipe",
 	"ingredients": [
 		{
-			"item": "minecraft:gravel"
+			"item": "minecraft:cobblestone"
 		}
 	],
 	"output": {
-		"item": "minecraft:flint"
+		"item": "minecraft:gravel"
 	}
 }

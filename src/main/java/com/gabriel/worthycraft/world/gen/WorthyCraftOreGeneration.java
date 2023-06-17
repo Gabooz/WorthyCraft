@@ -13,10 +13,7 @@ public class WorthyCraftOreGeneration {
 
 	
 	public static void generateOres(final BiomeLoadingEvent event) {
-	   List<Supplier<PlacedFeature>> base =
-	   event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
-
-	   base.add(ModPlacedFeatures.CITRINE_ORE_PLACED);
+	   event.getGeneration().addFeature(GenerationStep.Decoration.RAW_GENERATION, ModPlacedFeatures.IRON_ORE_PLACED);
 	}
 
 }

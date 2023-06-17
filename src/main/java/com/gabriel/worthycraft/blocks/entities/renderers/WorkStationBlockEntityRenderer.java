@@ -54,9 +54,6 @@ public class WorkStationBlockEntityRenderer implements BlockEntityRenderer<WorkS
 				
 				pPoseStack.translate(0.5f, 0.5f, 0.5f);
 		        pPoseStack.scale(1f, 1f, 1f);
-		        pPoseStack.mulPose(Vector3f.XP.rotation(0f));
-		        pPoseStack.mulPose(Vector3f.YP.rotation(0f));
-		        pPoseStack.mulPose(Vector3f.ZP.rotation(0f));
 		        
 		        
 			    itemRenderer.renderStatic(renderedItems.getItem(0), ItemTransforms.TransformType.GUI, LightTexture.pack(pBlockEntity.getLevel().getBrightness(LightLayer.BLOCK, pBlockEntity.getBlockPos()), pBlockEntity.getLevel().getBrightness(LightLayer.SKY, pBlockEntity.getBlockPos())), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
@@ -69,9 +66,9 @@ public class WorkStationBlockEntityRenderer implements BlockEntityRenderer<WorkS
 					
 					pPoseStack.translate(0.25f, 0.5f, 0.25f);
 			        pPoseStack.scale(0.8f, 0.8f, 0.8f);
-			        pPoseStack.mulPose(Vector3f.XP.rotation(20f));
-			        pPoseStack.mulPose(Vector3f.YP.rotation(0f));
-			        pPoseStack.mulPose(Vector3f.ZP.rotation(0f));
+			        pPoseStack.mulPose(Vector3f.XP.rotationDegrees(90f));
+			        pPoseStack.mulPose(Vector3f.YP.rotationDegrees(90f));
+			        pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(90f));
 			        
 			        
 				    itemRenderer.renderStatic(renderedItems.getItem(i), ItemTransforms.TransformType.GUI, LightTexture.pack(pBlockEntity.getLevel().getBrightness(LightLayer.BLOCK, pBlockEntity.getBlockPos()), pBlockEntity.getLevel().getBrightness(LightLayer.SKY, pBlockEntity.getBlockPos())), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);

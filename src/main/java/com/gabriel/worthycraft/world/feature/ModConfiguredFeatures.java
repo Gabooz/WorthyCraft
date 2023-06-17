@@ -16,6 +16,6 @@ public static final List<OreConfiguration.TargetBlockState> OVERWORLD_IRON_ORES 
         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, Blocks.IRON_ORE.defaultBlockState()),
         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, Blocks.IRON_ORE.defaultBlockState()));
 	
-	public static final Supplier<ConfiguredFeature<OreConfiguration, ?>> IRON_ORE = FeatureUtils.register("iron_ore",
-	        Feature.ORE, new OreConfiguration(OVERWORLD_IRON_ORES, 9));
+	public static final ConfiguredFeature<OreConfiguration, ?> IRON_ORE = FeatureUtils.register("iron_ore",
+			Feature.ORE.configured(new OreConfiguration(OVERWORLD_IRON_ORES, 9)));
 }

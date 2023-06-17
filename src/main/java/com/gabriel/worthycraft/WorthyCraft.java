@@ -3,6 +3,7 @@ package com.gabriel.worthycraft;
 import com.gabriel.worthycraft.setup.Registration;
 import com.gabriel.worthycraft.setup.ModSetup;
 import com.gabriel.worthycraft.networking.ModMessages;
+import com.gabriel.worthycraft.oregen.OreManager;
 import com.gabriel.worthycraft.setup.ClientSetup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +35,8 @@ public class WorthyCraft {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
         
         modbus.addListener(this::commonSetup);
+        
+        OreManager.setup();
     }
     
     private void commonSetup(final FMLCommonSetupEvent event) {

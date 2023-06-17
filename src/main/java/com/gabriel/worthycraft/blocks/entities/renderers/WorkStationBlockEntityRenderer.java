@@ -54,9 +54,9 @@ public class WorkStationBlockEntityRenderer implements BlockEntityRenderer<WorkS
 				
 				pPoseStack.translate(0.5f, 0.5f, 0.5f);
 		        pPoseStack.scale(1f, 1f, 1f);
-		        pPoseStack.mulPose(Vector3f.XP.rotation(120f));
-		        pPoseStack.mulPose(Vector3f.YP.rotation(120f));
-		        pPoseStack.mulPose(Vector3f.ZP.rotation(120f));
+		        pPoseStack.mulPose(Vector3f.XP.rotation(0f));
+		        pPoseStack.mulPose(Vector3f.YP.rotation(0f));
+		        pPoseStack.mulPose(Vector3f.ZP.rotation(0f));
 		        
 		        
 			    itemRenderer.renderStatic(renderedItems.getItem(0), ItemTransforms.TransformType.GUI, LightTexture.pack(pBlockEntity.getLevel().getBrightness(LightLayer.BLOCK, pBlockEntity.getBlockPos()), pBlockEntity.getLevel().getBrightness(LightLayer.SKY, pBlockEntity.getBlockPos())), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
